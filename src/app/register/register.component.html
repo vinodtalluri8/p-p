@@ -1,0 +1,216 @@
+<div class="panel panel-default" style="margin-left:-3px">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 padding-left-10">
+      <app-breadcrumbs [items]='itemsPath'></app-breadcrumbs>
+    </div>
+  </div>
+  <div class="panel-heading section-padding">
+    <h3 class="panel-title" style="font-size: 24px">Register New Document</h3>
+  </div>
+
+  <div class="panel-body section-padding">
+    <!--<h4>Intermediary</h4>-->
+    <div class="row">
+      <div class="col-2">
+        <label for="title" class="control-label">DR Workbox</label>
+      </div>
+      <div class="col-3 checkboxpos">
+        <p-checkbox name="group1" value="checked" label="" inputId="on" (click)="checklistClicked()"></p-checkbox>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-xs-4">
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Group</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.group = $event' [selectedItem]='group'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">System</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-multiselect multiselectheader="System" [dataSource]='mockMultiDropDownData' (selectedMultiSelect)='changeSystem($event)'
+                [selectedItems]='selectedSystem'></app-multiselect>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Fund Type</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.fundtype = $event' [selectedItem]='fundtype'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Abstract</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-input-text-area rowSize='6' (inputTextAreaSelected)='this.abstract1= $event' [value]='abstract1' name='control'></app-input-text-area>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4">
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Owner</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-input (inputTextSelected)='this.owner = $event' #inputowner [value]='owner' maxlength="60"></app-input>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Major Category</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.majorcategory = $event' [selectedItem]='majorcategory'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Type</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.type = $event' [selectedItem]='type'></app-dropdown>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Document</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-input (inputTextSelected)='this.document = $event' #inputdocument [value]='document' maxlength="60"></app-input>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-8">
+              <label for="title" class="control-label">or Link to Existing Document</label>
+            </div>
+            <div class="col-4" style="margin-top : 8px;">
+              <p-checkbox name="group1" value="checked" label="" inputId="on" (click)="checklistClicked()"></p-checkbox>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Search</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-input (inputTextSelected)='this.search = $event' #inputsearch [value]='search' maxlength="60"></app-input>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-xs-4">
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Department</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.department = $event' [selectedItem]='department'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Minor Category</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.minorcategory = $event' [selectedItem]='minorcategory'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Frequency</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.frequency = $event' [selectedItem]='frequency'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Company Wide</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.companywide = $event' [selectedItem]='companywide'></app-dropdown>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="row paddingTopClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <label class="control-label">Document Title</label>
+            </div>
+          </div>
+          <div class="row paddingDataClass">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <app-dropdown [datasource]='mockDropDownData' (selectedItemChange)='this.documenttitle = $event' [selectedItem]='documenttitle'></app-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row addCheckListButtons">
+    <div class="col-sm-8 col-md-8 col-lg-8">
+      <app-button (click)="saveData()" [disabled]='disable()' label="Display Documents" styleClass='button-action'></app-button>
+      <app-button (click)="resetAll()" label="Clear All" styleClass='button-action'></app-button>
+    </div>
+  </div>
+</div>
